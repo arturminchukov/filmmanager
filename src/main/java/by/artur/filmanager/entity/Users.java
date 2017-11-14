@@ -92,9 +92,13 @@ public class Users {
 
 	@Override
 	public String toString() {
-		return "Users [id_user=" + id_user + ", email=" + email + ", password=" + password + ", role= del_status=" + del_status + "]";
+		return "Users [id_user=" + id_user + ", email=" + email + ", password=" + password + ", role="+role.getName()+" del_status=" + del_status + "]";
 	}
-
+	
+	public String toStringList() {
+		return "  email="+email;
+	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -103,7 +107,7 @@ public class Users {
 		result = prime * result + ((email == null) ? 0 : email.hashCode());
 		result = prime * result + id_user;
 		result = prime * result + ((password == null) ? 0 : password.hashCode());
-		//result = prime * result + ((role == null) ? 0 : role.hashCode());
+		result = prime * result + ((role == null) ? 0 : role.getId_role());
 		return result;
 	}
 

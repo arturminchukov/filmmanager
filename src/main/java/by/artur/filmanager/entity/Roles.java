@@ -62,7 +62,7 @@ public class Roles {
 		int result = 1;
 		result = prime * result + id_role;
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
-		//result = prime * result + ((users == null) ? 0 : users.hashCode());
+		result = prime * result + ((users == null) ? 0 : users.hashCode());
 		return result;
 	}
 
@@ -92,7 +92,7 @@ public class Roles {
 
 	@Override
 	public String toString() {
-		return "Role [id_role=" + id_role + ", name=" + name + ", users= ]";
+		return "Role [id_role=" + id_role + ", name=" + name + ", users="+users.toString() +"]";
 	}
 
 	public Roles(int id_role, String name, Set<Users> users) {
