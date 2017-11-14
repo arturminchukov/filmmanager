@@ -1,0 +1,56 @@
+#navigation{
+	background-color: #ac2925;
+}
+
+.site-content{
+	min-height: 700px;
+}
+
+.sidenav{
+	min-height: 700px;
+	border-left: 2px solid gray;
+}
+.btn-primary{
+	background-color: #ac2925;
+}
+.btn-primary:hover, .btn-primary:focus, .btn-primary.focus, .btn-primary:active, .btn-primary.active, .open>.dropdown-toggle.btn-primary {
+    color: #fff;
+    background-color: #ac2925;
+    border-color: #ac2925;
+}
+.btn {
+    padding: 15px 15px;
+    font-size: 15px;
+}
+
+.navbar-right .dropdown-menu {
+    right: auto;
+    left: 0;
+}
+a{
+	color:#FF0000;
+}
+label.active {
+    -webkit-transform: translateY(50px);
+    transform: translateY(-25px);
+    left: 2px;
+    font-size: 14px;
+}
+
+.form {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 40px;
+    max-width: 600px;
+    margin: 0px auto;
+    border-radius: 4px;
+    box-shadow: 0 4px 10px 4px rgba(255, 255, 255, 0.3);
+}
+input.registration, textarea.registration {
+    color: #161515;
+}
+label.highlight {
+    color: #000000;
+}
+.button{
+	background: rgb(255, 0, 0);
+}

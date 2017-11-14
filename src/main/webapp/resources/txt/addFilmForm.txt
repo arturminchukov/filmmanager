@@ -1,0 +1,45 @@
+<div class="form">
+  <form class="registration" action="/" method="post">
+
+
+    <div class="field-wrap">
+      <label class="registration active highlight">
+        Название фильма
+      </label>
+      <input class="registration" type="text" autocomplete="off"/>
+    </div>
+
+<div class="field-wrap">
+    <div class='input-group date' id='datetimepicker2'>
+      <input type='text' class="form-control" />
+      <span class="input-group-addon">
+        <span onclick="showDate()" class="glyphicon glyphicon-calendar"></span>
+      </span>
+    </div>
+        </div>
+
+    <div class="field-wrap">
+      <label class="registration active highlight">
+        Жанр
+      </label>
+      <input class="registration" type="text" autocomplete="off"/>
+    </div>
+
+    <div class="field-wrap">
+      <label class="registration active highlight">
+        Режиссер
+      </label>
+      <input class="registration" type="text" autocomplete="off"/>
+    </div>
+
+    <div class="field-wrap">
+      <label class="registration active highlight">
+        Стоимость
+      </label>
+      <input class="registration" type="text" autocomplete="off"/>
+    </div>
+
+    <button type="submit" class="button button-block"/>Добавить</button>
+
+  </form>
+</div>
