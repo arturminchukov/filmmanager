@@ -25,13 +25,13 @@ public class Statuses {
 	private String name;
 	
 	
-	/*@OneToMany(cascade = CascadeType.ALL, mappedBy = "status")*/
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "del_status")
 	private Set<Users> users = new HashSet<>();
 	
-/*	public void addUsers(Users user) {
-		user.setStatus(this);
+	public void addUsers(Users user) {
+		user.setDel_status(this);
 		this.users.add(user);
-	}*/
+	}
 
 	protected int getId_status() {
 		return id_status;
@@ -93,7 +93,7 @@ public class Statuses {
 
 	@Override
 	public String toString() {
-		return "Statuses [id_status=" + id_status + ", name=" + name + ", users=" + users + "]";
+		return "Statuses [id_status=" + id_status + ", name=" + name + /*", users=" + users +*/ "]";
 	}
 
 	public Statuses(int id_status, String name, Set<Users> users) {

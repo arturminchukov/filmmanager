@@ -7,6 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Client {
@@ -28,9 +29,15 @@ public class Client {
 	@Column(name="address",length=50,nullable=true)
 	private String address;
 
-	/*@ManyToOne
-    @JoinColumn(name = "id_user", referencedColumnName = "id_user")*/
+	@OneToOne
+    @JoinColumn(name = "id_user", referencedColumnName = "id_user")
 	private Users user;
+	
+	
+	public void addUser(Users user) {
+		user.setClient(this);
+		this.user = user;
+	}
 
 	protected int getId_client() {
 		return id_client;
@@ -138,14 +145,13 @@ public class Client {
 				+ ", address=" + address + ", user=" + user + "]";
 	}
 
-	public Client(int id_client, String company, String name, String tel_no, String address, Users user) {
+	public Client(String company, String name, String tel_no, String address, Users user) {
 		super();
-		this.id_client = id_client;
 		this.company = company;
 		this.name = name;
 		this.tel_no = tel_no;
 		this.address = address;
-		this.user = user;
+		addUser(user);
 	}
 
 	public Client() {

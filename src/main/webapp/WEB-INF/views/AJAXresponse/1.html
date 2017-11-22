@@ -42,6 +42,8 @@
 		<link rel="stylesheet" href="css/animate.css">
 		<!-- Main Stylesheet -->
 		<link rel="stylesheet" href="css/main.css">
+		
+		<script src="js/myAjax.js"></script>
 
 		<!-- Modernizer Script for old Browsers -->
 		<script src="js/modernizr-2.6.2.min.js"></script>
@@ -541,7 +543,7 @@
         						<p class="registration" class="forgot"><a href="#">Forgot Password?</a></p>
 
         						<!-- <button class="button button-block" onclick="sendForm(authorization_form)">Log In</button> -->
-        						<button class="button button-block" onclick="sendForm('#authorization_form')">Log In</button>
+        						<button class="button button-block" onclick="authorize(this)">Log In</button>
 
         					</form>
                     </div>
@@ -583,25 +585,27 @@
 
 
 <!-- Скрипт валидации данных -->
- <script type="text/javascript">
-$(document).ready(function(){
-	$('#authorization_form').submit(function(event){
-		var e = $('#emailId').val();
-		var p = $('#passwordId').val();
-		debugger
-		$.ajax({
-			type: "POST",
-			url: "http://localhost:8080/FilmStudio/login",
-			data: {
-				'email': e,
-				'password': p,
-				'isValid': 1234			
-			}
-		});	
-	});	
-});
 
-/*  function sendForm(form) {
+
+	<!--  <script type="text/javascript">
+	$(document).ready(function(){
+		$('#authorization_form').submit(function(event){
+			var e = $('#emailId').val();
+			var p = $('#passwordId').val();
+			debugger
+			$.ajax({
+				type: "POST",
+				url: "http://localhost:8080/FilmStudio/login",
+				data: {
+					'email': e,
+					'password': p,
+					'isValid': 1234			
+				}
+			});	
+		});	
+	}); -->
+
+<!-- /*  function sendForm(form) {
 	 var formData=new FormData(form);
 	 formData.append("isValid","yes");
 	 debugger
@@ -612,8 +616,8 @@ $(document).ready(function(){
 	 //req.send(formData);
 	}  */
 	
-</script>
+</script> -->
 
 		
 	</body>
-	</html>
+</html>

@@ -50,6 +50,10 @@
 		<!-- Main Stylesheet -->
 		<link rel="stylesheet" href="${context}/css/main.css">
 
+
+		<script src="${context}/js/myAJAX.js"></script>
+		
+		
 		<!-- Modernizer Script for old Browsers -->
 		<script src="${context}/js/modernizr-2.6.2.min.js"></script>
 		
@@ -455,7 +459,7 @@
         				<div id="signup">   
         					<h1 class="registration">Sign Up for Free</h1>
 
-        					<form class="registration" method="post" action="registration"  name="registration_form" >
+        					<form class="registration"  id="registration_form"  name="registration_form" >
 
         						<div class="top-row">
         							<div class="field-wrap">
@@ -522,7 +526,7 @@
                                     <input class="registration" name="confirm_password" type="password"required autocomplete="off"/>
                                 </div>
 
-        						<button type="submit" value="Submit" class="button button-block">Зарегистрироваться</button>
+        						<button  class="button button-block" onclick="register(this)">Зарегистрироваться</button>
 
         					</form>
 
@@ -531,7 +535,7 @@
         				<div id="login">   
         					<h1 class="registration">Welcome Back!</h1>
 
-        					<form class="registration"  id="authorization_form" name="authorization_form">
+        					<form action="authorize" method="POST" class="registration"  id="authorization_form" name="authorization_form">
 
         						<div class="field-wrap">
         							<label class="registration">
@@ -549,8 +553,8 @@
 
         						<p class="registration" class="forgot"><a href="#">Forgot Password?</a></p>
 
-        						<!-- <button class="button button-block" onclick="sendForm(authorization_form)">Log In</button> -->
-        						<button class="button button-block" onclick="sendForm('#authorization_form')">Log In</button>
+        						<!-- <input type="submit" value="Log in">Log In -->
+        						<button class="button button-block" onclick="authorize(this)">Log In</button>
 
         					</form>
                     </div>
@@ -566,6 +570,10 @@
 			
 		<!-- scripts -->
 		
+			<%-- <script src="${context}/js/registration.js"></script>
+			<script src="${context}/js/main.js"></script> --%>
+			
+			
 			<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 	        
 			<!-- Essential jQuery Plugins
@@ -598,40 +606,10 @@
 			<script>
 				<%@ include file="../../resources/js/main.js"%>
 			</script>
-	
+	 
+	 	
 		
 		<!-- Скрипт валидации данных -->
-		 <script type="text/javascript">
-		$(document).ready(function(){
-			$('#authorization_form').submit(function(event){
-				var e = $('#emailId').val();
-				var p = $('#passwordId').val();
-				debugger
-				$.ajax({
-					type: "POST",
-					url: "http://localhost:8080/FilmStudio/login",
-					data: {
-						'email': e,
-						'password': p,
-						'isValid': 1234			
-					}
-				});	
-			});	
-		});
-		
-		/*  function sendForm(form) {
-			 var formData=new FormData(form);
-			 formData.append("isValid","yes");
-			 debugger
-			 var req = new XMLHttpRequest();
-			 req.open("POST", "http://localhost:8080/FilmStudio/login", true);
-			 req.setRequestHeader("Content-Type","");
-			req.send({"email":1, "password": 1, "isValid":1});
-			 //req.send(formData);
-			}  */
-			
-		</script>
-			
       
 
 		

@@ -30,29 +30,29 @@ public class Roles {
 		this.users.add(user);
 	}
 
-	protected int getId_role() {
+	public int getId_role() {
 		return id_role;
 	}
 
-	protected void setId_role(int id_role) {
+	public void setId_role(int id_role) {
 		this.id_role = id_role;
 	}
 
-	protected String getName() {
+	public String getName() {
 		return name;
 	}
 
-	protected void setName(String name) {
+	public void setName(String name) {
 		this.name = name;
 	}
 
 	
 	
-	protected Set<Users> getUsers() {
+	public Set<Users> getUsers() {
 		return users;
 	}
 
-	protected void setUsers(Set<Users> users) {
+	public void setUsers(Set<Users> users) {
 		this.users = users;
 	}
 
@@ -92,7 +92,7 @@ public class Roles {
 
 	@Override
 	public String toString() {
-		return "Role [id_role=" + id_role + ", name=" + name + ", users="+users.toString() +"]";
+		return "Role [id_role=" + id_role + ", name=" + name + /*", users="+users.toString() +*/"]";
 	}
 
 	public Roles(int id_role, String name, Set<Users> users) {

@@ -1,6 +1,5 @@
 package by.artur.filmanager.entity;
 
-
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -14,36 +13,37 @@ import javax.persistence.OneToOne;
 
 @Entity
 public class Users {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="id_user")
+	@Column(name = "id_user")
 	private int id_user;
-	
-	@Column(name="email", length=30, nullable=false, unique=true)
+
+	@Column(name = "email", length = 30, nullable = false, unique = true)
 	private String email;
-	
-	@Column(name="password", length=25, nullable=false)
+
+	@Column(name = "password", length = 25, nullable = false)
 	private String password;
-	
+
 	@ManyToOne
-    @JoinColumn(name = "role", referencedColumnName = "id_role")
-	//@Column(name="role", nullable=false)
+	@JoinColumn(name = "role", referencedColumnName = "id_role")
+	// @Column(name="role", nullable=false)
 	private Roles role;
+
+	@ManyToOne
+	@JoinColumn(name = "del_status", referencedColumnName = "id_status")
+	// @Column(name="del_status",nullable=false)
+	private Statuses del_status;
+
+	@OneToOne(cascade = CascadeType.ALL, mappedBy = "user")
+	private Client client;
+
 	
-	/*@ManyToOne
-    @JoinColumn(name = "del_st", referencedColumnName = "id_status")*/
-	@Column(name="del_status",nullable=false)
-	private int del_status;
-	
-	/*@OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
-	private Client client;*/
-	
-	
-	/*public void addClient(Client client) {
+	public void addClient(Client client) {
 		client.setUser(this);
-		this.client=client;;
-	}*/
+		this.client = client;
+	}
+	 
 
 	public Roles getRole() {
 		return role;
@@ -52,7 +52,7 @@ public class Users {
 	public void setRole(Roles role) {
 		this.role = role;
 	}
-	
+
 	public int getId_user() {
 		return id_user;
 	}
@@ -77,33 +77,28 @@ public class Users {
 		this.password = password;
 	}
 
-
-	public int getDel_status() {
+	public Statuses getDel_status() {
 		return del_status;
 	}
 
-	public void setDel_status(int del_status) {
+	public void setDel_status(Statuses del_status) {
 		this.del_status = del_status;
 	}
 
-
-
-
-
-	@Override
-	public String toString() {
-		return "Users [id_user=" + id_user + ", email=" + email + ", password=" + password + ", role="+role.getName()+" del_status=" + del_status + "]";
+	public Client getClient() {
+		return client;
 	}
-	
-	public String toStringList() {
-		return "  email="+email;
+
+	public void setClient(Client client) {
+		this.client = client;
 	}
-	
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + del_status;
+		result = prime * result + ((client == null) ? 0 :client.getId_client());
+		result = prime * result + ((del_status == null) ? 0 :del_status.getId_status());
 		result = prime * result + ((email == null) ? 0 : email.hashCode());
 		result = prime * result + id_user;
 		result = prime * result + ((password == null) ? 0 : password.hashCode());
@@ -120,7 +115,15 @@ public class Users {
 		if (getClass() != obj.getClass())
 			return false;
 		Users other = (Users) obj;
-		if (del_status != other.del_status)
+		if (client == null) {
+			if (other.client != null)
+				return false;
+		} else if (!client.equals(other.client))
+			return false;
+		if (del_status == null) {
+			if (other.del_status != null)
+				return false;
+		} else if (!del_status.equals(other.del_status))
 			return false;
 		if (email == null) {
 			if (other.email != null)
@@ -142,9 +145,15 @@ public class Users {
 		return true;
 	}
 
-	public Users(int id_user, String email, String password, Roles role, int del_status) {
+	@Override
+	public String toString() {
+		return "Users [id_user=" + id_user + ", email=" + email + ", password=" + password + ", role=" + role.getName()
+				+ ", del_status=" + del_status.getName() + ", client=" + client + "]";
+	}
+
+	
+	public Users(String email, String password, Roles role, Statuses del_status) {
 		super();
-		this.id_user = id_user;
 		this.email = email;
 		this.password = password;
 		this.role = role;
@@ -154,6 +163,5 @@ public class Users {
 	public Users() {
 		super();
 	}
-	
-	
+
 }

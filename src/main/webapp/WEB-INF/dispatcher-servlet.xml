@@ -12,6 +12,7 @@ http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 	<context:component-scan base-package="by.artur.filmanager.controllers"/>
 	<mvc:annotation-driven />
 	<mvc:resources mapping="/resources/**"  location="/resources/" />
+	<mvc:resources mapping="js/**"  location="/resources/js" />
 
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix">

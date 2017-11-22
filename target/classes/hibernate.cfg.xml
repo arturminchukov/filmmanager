@@ -12,8 +12,8 @@
         
         <mapping class="by.artur.filmanager.entity.Roles"></mapping>
     	<mapping class="by.artur.filmanager.entity.Users"></mapping>
-        <!-- <mapping class="by.artur.filmanager.entity.Statuses"></mapping>
-        <mapping class="by.artur.filmanager.entity.Client"></mapping> -->
+        <mapping class="by.artur.filmanager.entity.Statuses"></mapping>
+        <mapping class="by.artur.filmanager.entity.Client"></mapping>
         <!-- <mapping resource="Products.hbm.xml"></mapping> -->
     </session-factory> 
 </hibernate-configuration>  
