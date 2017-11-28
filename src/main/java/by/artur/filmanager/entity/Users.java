@@ -8,7 +8,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 @Entity
@@ -27,12 +26,10 @@ public class Users {
 
 	@ManyToOne
 	@JoinColumn(name = "role", referencedColumnName = "id_role")
-	// @Column(name="role", nullable=false)
 	private Roles role;
 
 	@ManyToOne
 	@JoinColumn(name = "del_status", referencedColumnName = "id_status")
-	// @Column(name="del_status",nullable=false)
 	private Statuses del_status;
 
 	@OneToOne(cascade = CascadeType.ALL, mappedBy = "user")

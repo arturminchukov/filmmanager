@@ -48,3 +48,232 @@ function register(ob){
 	else
 		alert("Пароли не совпадают");
 };
+
+
+/*Загрузка таблицы с заказами из базы данных*/
+function getOrders(path){
+	alert("work");
+	$.ajax({
+		type: "POST",
+		url: path,
+		success:function(data){
+			$('#dynamic-content').html(data);
+		}
+	});
+};
+
+/*загрузка формы для добавления заказа*/
+function getOrderForm(){
+	alert("work");
+	$.ajax({
+		type: "POST",
+		url: "getOrderForm",
+		success:function(data){
+			$('#dynamic-content').html(data);
+		}
+	});
+};
+/*загрузка формы для добавления фильма*/
+function loadFormAddFilm(){
+	alert("work");
+	$.ajax({
+		type: "POST",
+		url: "loadFormFilm",
+		success:function(data){
+			$('#dynamic-content').html(data);
+		}
+	});
+};
+
+/*Запрос на добавление нового фильма*/
+function addFilm(ob){
+	var name = ob.form.name.value;
+	var date = ob.form.date.value;
+	var genre = ob.form.genre.value;
+	var producer = ob.form.producer.value;
+	var price = ob.form.price.value;
+	alert('work');
+	$.ajax({
+			type : "POST",
+			url : "addFilm",
+			data : {
+				'name' : name,
+				'release_date' : date,
+				'genre':genre,
+				'producer':producer,
+				'price':price
+			},
+			success: function(data){
+				$('#dynamic-content').html(data);
+			}
+		});
+};
+
+/*Запрос на создание заказа*/
+function doOrder(ob){
+	var film = ob.form.film.value;
+	alert('work');
+	$.ajax({
+			type : "POST",
+			url : "doOrder",
+			data : {
+				'film' : film
+			},
+			success: function(data){
+				$('#dynamic-content').html(data);
+			}
+		});
+};
+
+/*Запрос на форму необработанных заказов*/
+function getProcessOrder(){
+	alert('work');
+	$.ajax({
+			type : "POST",
+			url : "processOrders",
+			success: function(data){
+				$('#dynamic-content').html(data);
+			}
+		});
+};
+
+/*Одобрить заказ*/
+function acceptOrder(ob){
+	var order = ob.form.order.value;
+	alert('work');
+	$.ajax({
+			type : "POST",
+			url : "acceptOrder",
+			data : {
+				'order' : order
+			},
+			success: function(data){
+				$('#dynamic-content').html(data);
+			}
+		});
+};
+
+/*Отклонить заказ*/
+function declineOrder(ob){
+	var order = ob.form.order.value;
+	alert('work');
+	$.ajax({
+			type : "POST",
+			url : "declineOrder",
+			data : {
+				'order' : order
+			},
+			success: function(data){
+				$('#dynamic-content').html(data);
+			}
+		});
+};
+
+/*Выбранный запрос из таблицы посылается на сервер*/
+function selectOrder(ob){
+	var selectedOrder=ob.innerHTML;
+	$.ajax({
+		type:"POST",
+		url:"selectOrder",
+		data:{
+			'order':selectedOrder
+		},
+		success:function(data){
+			$('#dynamic-content').html(data);
+		}
+	});
+}
+
+
+/*Запрос на список фильмов*/
+function loadAllFilms(){
+	$.ajax({
+		type:"POST",
+		url:"loadAllFilms",
+		success:function(data){
+			$('#dynamic-content').html(data);
+		}
+	});
+}
+
+/*Выбранный фильм из таблицы посылается на сервер*/
+function selectFilm(ob){
+	var selectedFilm=ob.innerHTML;
+	$.ajax({
+		type:"POST",
+		url:"selectFilm",
+		data:{
+			'film':selectedFilm
+		},
+		success:function(data){
+			$('#dynamic-content').html(data);
+		}
+	});
+}
+
+/*Запрос на обновление фильма*/
+function updateFilm(ob){
+	var id_film = ob.form.id_film.value;
+	var name = ob.form.name.value;
+	var release_date = ob.form.release_date.value;
+	var genre = ob.form.genre.value;
+	var producer = ob.form.producer.value;
+	var price = ob.form.price.value;
+	alert('work');
+	$.ajax({
+			type : "POST",
+			url : "updateFilm",
+			data : {
+				'id_film':id_film,
+				'name' : name,
+				'release_date' : release_date,
+				'genre':genre,
+				'producer':producer,
+				'price':price
+			},
+			success: function(data){
+				$('#dynamic-content').html(data);
+			}
+		});
+}
+
+/*Запрос на удаление фильма*/
+function deleteFilm(ob){
+	var id_film = ob.form.id_film.value;
+	alert('work');
+	$.ajax({
+			type : "POST",
+			url : "deleteFilm",
+			data : {
+				'id_film':id_film,
+			},
+			success: function(data){
+				$('#dynamic-content').html(data);
+			}
+		});
+}
+
+/*Загрузка таблицы с заказами из базы данных только тех которые делал клиент*/
+/*function getClientOrders(){
+	alert("work");
+	$.ajax({
+		type: "POST",
+		url: "showClientOrders",
+		success:function(data){
+			$('#dynamic-content').html(data);
+		}
+	});
+};*/
+
+/*Загрузка таблицы с заказами из базы данных только тех которые делал клиент 
+ * и которые находятся на обработке тоесть без даты обработки*/
+/*function getProcessClientOrders(){
+	alert("work");
+	$.ajax({
+		type: "POST",
+		url: "showProcessOrders",
+		success:function(data){
+			$('#dynamic-content').html(data);
+		}
+	});
+};*/

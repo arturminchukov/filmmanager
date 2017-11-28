@@ -104,8 +104,8 @@
         					<button class="btn btn-primary dropdown-toggle" id="menu1" type="button" data-toggle="dropdown">Заказы
         						<span class="caret"></span></button>
         						<ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-        							<li role="presentation"><a role="menuitem" tabindex="-1" href="#" onclick='loadDoc("txt/ajax.txt")'>Все заказы</a></li>
-        							<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Заказы на обработке</a></li>
+        							<li role="presentation"><a role="menuitem" tabindex="-1" href="#" onclick='getOrders("orders")'>Все заказы</a></li>
+        							<li role="presentation"><a role="menuitem" tabindex="-1" href="#" onclick="getProcessOrder()">Заказы на обработке</a></li>
         							<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Заказы за последний месяц</a></li>   
         						</ul>
         				</div>
@@ -116,7 +116,7 @@
         						<span class="caret"></span></button>
         						<ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
         							<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Все актеры</a></li>
-        							<li role="presentation"><a role="menuitem" tabindex="-1" href="#" onclick='loadDoc("txt/addActor.txt")'>Добавить актера</a></li>
+        							<li role="presentation"><a role="menuitem" tabindex="-1" href="#" onclick='getAllOrders()'>Добавить актера</a></li>
         							<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Удалить актера</a></li>   
         						</ul>
         				</div>
@@ -137,8 +137,8 @@
         					<button class="btn btn-primary dropdown-toggle" id="menu1" type="button" data-toggle="dropdown">Фильмы
         						<span class="caret"></span></button>
         						<ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-        							<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Все фильмы</a></li>
-        							<li role="presentation"><a role="menuitem" tabindex="-1" href="#" onclick='loadDoc("txt/addFilmForm.txt")'>Добавить фильм</a></li>
+        							<li role="presentation"><a role="menuitem" tabindex="-1" href="#" onclick="loadAllFilms()">Все фильмы</a></li>
+        							<li role="presentation"><a role="menuitem" tabindex="-1" href="#" onclick='loadFormAddFilm()'>Добавить фильм</a></li>
         							<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Удалить фильм</a></li>   
         						</ul>
         				</div>
@@ -177,38 +177,8 @@
 
 
                 <div class="col-md-2 sidenav">
-                    <div class="well">
-                        <div>
-                          <!-- Trigger the modal with a button -->
-                          <button type="button" class="btn btn-danger btn-lg" data-toggle="modal" data-target="#addNewClient">Добавить клиента</button>
-
-                          <!-- Modal -->
-                          <div class="modal fade" id="addNewClient" role="dialog">
-                            <div class="modal-dialog">
-
-                              <!-- Modal content-->
-                              <div class="modal-content">
-                                <div class="modal-header">
-                                  <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                  <h4 class="modal-title">Modal Header</h4>
-                              </div>
-                              <div class="modal-body">
-                                  <p>Some text in the modal.</p>
-                              </div>
-                              <div class="modal-footer">
-                                  <button type="button" class="btn btn-default" data-dismiss="modal">Добавить</button>
-                              </div>
-                          </div>
-
-                      </div>
-                  </div>
-
-              </div>
-          </div>
-          <div class="well">
-            <p>ADS</p>
-        </div>
-    </div>
+                   
+   				</div>
         </div>
     </main>
 

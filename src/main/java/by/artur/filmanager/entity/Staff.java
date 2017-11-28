@@ -1,12 +1,11 @@
 package by.artur.filmanager.entity;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
+
 
 public abstract class Staff {
 	
-	
-	
-
 	@Column(name="name", length=25,nullable=false)
 	protected String name;
 	
@@ -19,40 +18,36 @@ public abstract class Staff {
 	@Column(name="tel_no",length=12, nullable=true)
 	protected String tel_no;
 	
-	protected String getName() {
+	public String getName() {
 		return name;
 	}
 
-	protected void setName(String name) {
+	public void setName(String name) {
 		this.name = name;
 	}
 
-	protected String getLastname() {
+	public String getLastname() {
 		return lastname;
 	}
 
-	protected void setLastname(String lastname) {
+	public void setLastname(String lastname) {
 		this.lastname = lastname;
 	}
 
-	protected int getAge() {
+	public int getAge() {
 		return age;
 	}
 
-	protected void setAge(int age) {
+	public void setAge(int age) {
 		this.age = age;
 	}
 
-	protected String getTel_no() {
+	public String getTel_no() {
 		return tel_no;
 	}
 
-	protected void setTel_no(String tel_no) {
+	public void setTel_no(String tel_no) {
 		this.tel_no = tel_no;
-	}
-
-	public Staff() {
-		super();
 	}
 
 	@Override
@@ -64,15 +59,6 @@ public abstract class Staff {
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		result = prime * result + ((tel_no == null) ? 0 : tel_no.hashCode());
 		return result;
-	}
-
-
-	public Staff(String name, String lastname, int age, String tel_no) {
-		super();
-		this.name = name;
-		this.lastname = lastname;
-		this.age = age;
-		this.tel_no = tel_no;
 	}
 
 	@Override
@@ -104,8 +90,22 @@ public abstract class Staff {
 		return true;
 	}
 
+	@Override
 	public abstract String toString();
 
-		
+	public Staff(String name, String lastname, int age, String tel_no) {
+		super();
+		this.name = name;
+		this.lastname = lastname;
+		this.age = age;
+		this.tel_no = tel_no;
+	}
 
+	public Staff() {
+		super();
+	}
+
+	
+
+	
 }

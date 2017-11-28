@@ -12,10 +12,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.context.request.WebRequest;
 
 import by.artur.filmanager.dao.DaoClient;
+
 import by.artur.filmanager.dao.DaoRoles;
 import by.artur.filmanager.dao.DaoStatuses;
 import by.artur.filmanager.dao.DaoUsers;
 import by.artur.filmanager.entity.Client;
+
 import by.artur.filmanager.entity.Roles;
 import by.artur.filmanager.entity.Statuses;
 import by.artur.filmanager.entity.Users;
@@ -25,7 +27,7 @@ public class IndexController {
 	
 	@RequestMapping(value="/")
 	public String goToIndexPage() {
-		return "index";
+		return "manager";
 	}
 	
 	@RequestMapping(value="/registration")

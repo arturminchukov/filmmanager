@@ -1,12 +1,16 @@
 package by.artur.filmanager.entity;
 
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 @Entity
@@ -33,57 +37,75 @@ public class Client {
     @JoinColumn(name = "id_user", referencedColumnName = "id_user")
 	private Users user;
 	
+	@OneToMany(cascade=CascadeType.ALL,mappedBy="id_sell")
+	private Set<Orders> orders=new HashSet<>();
 	
+	public void addOrder(Orders order) {
+		order.setId_client(this);
+		this.orders.add(order);
+	}
+	
+	
+	public Set<Orders> getOrders() {
+		return orders;
+	}
+
+
+	public void setOrders(Set<Orders> orders) {
+		this.orders = orders;
+	}
+
+
 	public void addUser(Users user) {
 		user.setClient(this);
 		this.user = user;
 	}
 
-	protected int getId_client() {
+	public int getId_client() {
 		return id_client;
 	}
 
-	protected void setId_client(int id_client) {
+	public void setId_client(int id_client) {
 		this.id_client = id_client;
 	}
 
-	protected String getCompany() {
+	public String getCompany() {
 		return company;
 	}
 
-	protected void setCompany(String company) {
+	public void setCompany(String company) {
 		this.company = company;
 	}
 
-	protected String getName() {
+	public String getName() {
 		return name;
 	}
 
-	protected void setName(String name) {
+	public void setName(String name) {
 		this.name = name;
 	}
 
-	protected String getTel_no() {
+	public String getTel_no() {
 		return tel_no;
 	}
 
-	protected void setTel_no(String tel_no) {
+	public void setTel_no(String tel_no) {
 		this.tel_no = tel_no;
 	}
 
-	protected String getAddress() {
+	public String getAddress() {
 		return address;
 	}
 
-	protected void setAddress(String address) {
+	public void setAddress(String address) {
 		this.address = address;
 	}
 
-	protected Users getUser() {
+	public Users getUser() {
 		return user;
 	}
 
-	protected void setUser(Users user) {
+	public void setUser(Users user) {
 		this.user = user;
 	}
 

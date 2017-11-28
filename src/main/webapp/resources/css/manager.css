@@ -54,3 +54,30 @@ label.highlight {
 .button{
 	background: rgb(255, 0, 0);
 }
+th{
+	padding:10px;
+}
+
+.col-md-10{
+    position: relative;
+    min-height: 1px;
+    padding-right: 0;
+    padding-left: 0;
+}
+.form.full{
+    background: rgba(255, 255, 255, 0.9);
+    padding: 0px;
+    max-width: 100%;
+    margin: 0px auto;
+    border-radius: 4px;
+    box-shadow: 0 4px 10px 4px rgba(255, 255, 255, 0.3);
+}
+.container-fluid {
+    padding-right: 0;
+    padding-left: 0;
+    margin-right: auto;
+    margin-left: auto;
+}
+.table-dark{
+	width:100%;
+}

@@ -2,7 +2,10 @@ package by.artur.filmanager.dao;
 
 import java.util.List;
 
+import javax.persistence.Entity;
+
 import org.hibernate.Session;
+
 
 public abstract class Dao <T>{
 	

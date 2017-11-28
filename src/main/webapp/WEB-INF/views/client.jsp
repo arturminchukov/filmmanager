@@ -77,109 +77,95 @@
         <!--
         Fixed Navigation
         ==================================== -->
-        <header id="navigation" class="navbar-inverse animated-header">
-        	<div class="container">
-        		<div class="navbar-header">
-        			<!-- responsive nav button -->
-        			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-        				<span class="sr-only">Toggle navigation</span>
-        				<span class="icon-bar"></span>
-        				<span class="icon-bar"></span>
-        				<span class="icon-bar"></span>
-        			</button>
-        			<!-- /responsive nav button -->
+	<header id="navigation" class="navbar-inverse animated-header">
+		<div class="container">
+			<div class="navbar-header">
+				<!-- responsive nav button -->
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target=".navbar-collapse">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<!-- /responsive nav button -->
 
-        			<!-- logo -->
-        			<h1 class="navbar-brand">
-        				<a href="#body">Marvel Studios</a>
-        			</h1>
-        			<!-- /logo -->
-        		</div>
+				<!-- logo -->
+				<h1 class="navbar-brand">
+					<a href="#body">Marvel Studios</a>
+				</h1>
+				<!-- /logo -->
+			</div>
 
-        		<!-- main nav -->
-        		<nav class="collapse navbar-collapse navbar-right" role="navigation">
-        			<ul id="nav" class="nav navbar-nav">
-        				<li>
-        				<div class="dropdown">
-        					<button class="btn btn-primary dropdown-toggle" id="menu1" type="button" data-toggle="dropdown">Заказы
-        						<span class="caret"></span></button>
-        						<ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-        							<li role="presentation"><a role="menuitem" tabindex="-1" href="#" onclick='loadDoc("txt/ajax.txt")'>Просмотреть заказы</a></li>
-        							<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Заказы на обработке</a></li>
-        							<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Отклоненные заказы</a></li>   
-        						</ul>
-        				</div>
-        				</li>
-        				<li>
-        				<div class="dropdown">
-        					<button class="btn btn-primary dropdown-toggle" id="menu1" type="button" data-toggle="dropdown">Поиск
-        						<span class="caret"></span></button>
-        						<ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-        							<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Поиск фильма</a></li>
-        							<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Поиск фильмов по актеру</a></li>
-        							<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Поиск фильма про режиссеру</a></li>   
-        						</ul>
-        				</div>
-        				</li>
-        				<li><a href="#" id="go"><c:out value="${email}"></c:out></a></li>
-        			</ul>
-        		</nav>
-        		<!-- /main nav -->
+			<!-- main nav -->
+			<nav class="collapse navbar-collapse navbar-right" role="navigation">
+				<ul id="nav" class="nav navbar-nav">
+					<li>
+						<div class="dropdown">
+							<button class="btn btn-primary dropdown-toggle" id="menu1"
+								type="button" data-toggle="dropdown">
+								Заказы <span class="caret"></span>
+							</button>
+							<ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+								<li role="presentation"><a role="menuitem" tabindex="-1"
+									href="#" onclick='getOrders("showClientOrders")'>Просмотреть
+										заказы</a></li>
+								<li role="presentation"><a role="menuitem" tabindex="-1"
+									href="#" onclick='getOrders("showProcessOrders")'>Заказы на
+										обработке</a></li>
+								<li role="presentation"><a role="menuitem" tabindex="-1"
+									href="#">Отклоненные заказы</a></li>
+							</ul>
+						</div>
+					</li>
+					<li>
+						<div class="dropdown">
+							<button class="btn btn-primary dropdown-toggle" id="menu1"
+								type="button" data-toggle="dropdown">
+								Поиск <span class="caret"></span>
+							</button>
+							<ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+								<li role="presentation"><a role="menuitem" tabindex="-1"
+									href="#">Поиск фильма</a></li>
+								<li role="presentation"><a role="menuitem" tabindex="-1"
+									href="#">Поиск фильмов по актеру</a></li>
+								<li role="presentation"><a role="menuitem" tabindex="-1"
+									href="#">Поиск фильма про режиссеру</a></li>
+							</ul>
+						</div>
+					</li>
+					<li><a href="#" id="go"><c:out value="${email}"></c:out></a></li>
+				</ul>
+			</nav>
+			<!-- /main nav -->
 
-        	</div>
-        </header>
-        <!--
+		</div>
+	</header>
+	<!--
         End Fixed Navigation
         ==================================== -->
 
 
-        <!--=====================================
+	<!--=====================================
          Menu and the main part-->
-         <main class="site-content" role="main">
-            <div class="container-fluid text-center ">  
+	<main class="site-content" role="main">
+	<div class="container-fluid text-center ">
 
-                <div class="col-md-10 text-left" id="dynamic-content"> 
-                    
-                </div>
+		<div class="col-md-10 center-block" id="dynamic-content"></div>
 
 
-                <div class="col-md-2 sidenav">
-                    <div class="well">
-                        <div>
-                          <!-- Trigger the modal with a button -->
-                          <button type="button" class="btn btn-danger btn-lg" data-toggle="modal" data-target="#addNewClient">Сделать заказ</button>
+		<div class="col-md-2 sidenav">
+			<div class="well">
+				<div>
+					<!-- Trigger the modal with a button -->
+					<button type="button" class="btn btn-danger btn-lg"
+						 onclick="getOrderForm()">Сделать заказ</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	</main>
 
-                          <!-- Modal -->
-                          <div class="modal fade" id="addNewClient" role="dialog">
-                            <div class="modal-dialog">
-
-                              <!-- Modal content-->
-                              <div class="modal-content">
-                                <div class="modal-header">
-                                  <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                  <h4 class="modal-title">Modal Header</h4>
-                              </div>
-                              <div class="modal-body">
-                                  <p>Some text in the modal.</p>
-                              </div>
-                              <div class="modal-footer">
-                                  <button type="button" class="btn btn-default" data-dismiss="modal">Заказать</button>
-                              </div>
-                          </div>
-
-                      </div>
-                  </div>
-
-              </div>
-          </div>
-          <div class="well">
-            <p>ADS</p>
-        </div>
-    </div>
-        </div>
-    </main>
-
-        <!--END Menu and the main part
+	<!--END Menu and the main part
             ==========================-->
 
 
