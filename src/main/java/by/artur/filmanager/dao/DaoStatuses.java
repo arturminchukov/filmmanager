@@ -3,9 +3,7 @@ package by.artur.filmanager.dao;
 
 
 import java.util.List;
-
 import org.hibernate.Session;
-
 import by.artur.filmanager.entity.Statuses;
 
 public class DaoStatuses extends Dao<Statuses>{
@@ -24,6 +22,14 @@ public class DaoStatuses extends Dao<Statuses>{
 		List <Statuses> status = session.createQuery("from Statuses where name='"+name+"'").list();
 		HibernateUtil.closeSession(session);
 		return status.get(0);
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Statuses> getAllGenres(){
+		Session session=HibernateUtil.getSession();
+		List<Statuses> statuses= session.createQuery("from Statuses").list();
+		HibernateUtil.closeSession(session);
+		return statuses;
 	}
 	
 }

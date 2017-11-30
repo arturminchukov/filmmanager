@@ -139,13 +139,13 @@ function getProcessOrder(){
 
 /*Одобрить заказ*/
 function acceptOrder(ob){
-	var order = ob.form.order.value;
+	var id_sell = ob.form.id_sell.value;
 	alert('work');
 	$.ajax({
 			type : "POST",
 			url : "acceptOrder",
 			data : {
-				'order' : order
+				'id_sell' : id_sell
 			},
 			success: function(data){
 				$('#dynamic-content').html(data);
@@ -155,13 +155,13 @@ function acceptOrder(ob){
 
 /*Отклонить заказ*/
 function declineOrder(ob){
-	var order = ob.form.order.value;
+	var id_sell = ob.form.id_sell.value;
 	alert('work');
 	$.ajax({
 			type : "POST",
 			url : "declineOrder",
 			data : {
-				'order' : order
+				'id_sell' : id_sell
 			},
 			success: function(data){
 				$('#dynamic-content').html(data);
@@ -169,7 +169,7 @@ function declineOrder(ob){
 		});
 };
 
-/*Выбранный запрос из таблицы посылается на сервер*/
+/*Выбранный запрос заказа из таблицы посылается на сервер*/
 function selectOrder(ob){
 	var selectedOrder=ob.innerHTML;
 	$.ajax({
@@ -251,6 +251,51 @@ function deleteFilm(ob){
 				$('#dynamic-content').html(data);
 			}
 		});
+}
+
+/*======================ADMIN VIEW==========================================================*/
+/*загрузить таблицу со всеми пользователями*/
+function showAllusers(){
+	$.ajax({
+		type:"POST",
+		url:"showAllusers",
+		success:function(data){
+			$('#dynamic-content').html(data);
+		}
+	});
+}
+
+
+/*Загрузить форму для добавления пользователя*/
+function addUserForm(){
+	$.ajax({
+		type:"POST",
+		url:"addUserForm",
+		success:function(data){
+			$('#dynamic-content').html(data);
+		}
+	});
+}
+
+/*запрос на добавление нового пользователя*/ 
+function addUser(ob){
+	var email = ob.form.email.value;
+	var password = ob.form.password.value;
+	var role = ob.form.role.value;
+	var status = ob.form.status.value;
+	$.ajax({
+		type:"POST",
+		url:"addUser",
+		data:{
+			'email':email,
+			'password':password,
+			'role':role,
+			'status':status
+		},
+		success:function(data){
+			$('#dynamic-content').html(data);
+		}
+	});
 }
 
 /*Загрузка таблицы с заказами из базы данных только тех которые делал клиент*/

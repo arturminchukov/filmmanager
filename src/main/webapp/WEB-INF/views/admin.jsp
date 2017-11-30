@@ -101,9 +101,8 @@
         					<button class="btn btn-primary dropdown-toggle" id="menu1" type="button" data-toggle="dropdown">Пользователи
         						<span class="caret"></span></button>
         						<ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-        							<li role="presentation"><a role="menuitem" tabindex="-1" href="#" onclick='loadDoc("txt/ajax.txt")'>Все пользователи</a></li>
-        							<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Добавить пользователя</a></li>
-        							<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Удалить пользователя</a></li>   
+        							<li role="presentation"><a role="menuitem" tabindex="-1" href="#" onclick="showAllusers()">Все пользователи</a></li>
+        							<li role="presentation"><a role="menuitem" tabindex="-1" href="#" onclick="addUserForm()">Добавить пользователя</a></li>  
         						</ul>
         				</div>
         				</li>

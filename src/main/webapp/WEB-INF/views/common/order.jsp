@@ -50,11 +50,11 @@
 		</div>
 
 		<button  class="button button-block" onclick="acceptOrder(this)">
-			Accept
+			Одобрить
 		</button>
 		
 		<button  class="button button-block" onclick="declineOrder(this)">
-			Decline
+			Отклонить
 		</button>
 
 	</form>

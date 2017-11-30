@@ -1,7 +1,6 @@
 package by.artur.filmanager.entity;
 
 import javax.persistence.Column;
-import javax.persistence.Entity;
 
 
 public abstract class Staff {

@@ -33,27 +33,27 @@ public class Statuses {
 		this.users.add(user);
 	}
 
-	protected int getId_status() {
+	public int getId_status() {
 		return id_status;
 	}
 
-	protected void setId_status(int id_status) {
+	public void setId_status(int id_status) {
 		this.id_status = id_status;
 	}
 
-	protected String getName() {
+	public String getName() {
 		return name;
 	}
 
-	protected void setName(String name) {
+	public void setName(String name) {
 		this.name = name;
 	}
 
-	protected Set<Users> getUsers() {
+	public Set<Users> getUsers() {
 		return users;
 	}
 
-	protected void setUsers(Set<Users> users) {
+	public void setUsers(Set<Users> users) {
 		this.users = users;
 	}
 

@@ -20,7 +20,7 @@ public class DaoSellStatus extends Dao<SellStatus> {
 	@SuppressWarnings("unchecked")
 	public SellStatus getSellStatusByName(String name) {
 		Session session = HibernateUtil.getSession();
-		List<SellStatus> statuses= session.createQuery("FROM sell_status where name=+'"+name+"'").list();
+		List<SellStatus> statuses= session.createQuery("FROM sell_status where name='"+name+"'").list();
 		HibernateUtil.closeSession(session);
 		if(statuses.size()>0)
 			return statuses.get(0);

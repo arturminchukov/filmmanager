@@ -7,7 +7,6 @@ package by.artur.filmanager.dao;
 import java.util.List;
 
 import org.hibernate.Session;
-
 import by.artur.filmanager.entity.Roles;
 
 public class DaoRoles extends Dao<Roles>{
@@ -28,5 +27,12 @@ public class DaoRoles extends Dao<Roles>{
 		return role.get(0);
 	}
 	
+	@SuppressWarnings("unchecked")
+	public List<Roles> getAllRoles(){
+		Session session=HibernateUtil.getSession();
+		List<Roles> roles= session.createQuery("from Roles").list();
+		HibernateUtil.closeSession(session);
+		return roles;
+	}
 
 }

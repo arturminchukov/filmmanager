@@ -75,26 +75,36 @@ public class ManagerController {
 	}
 	
 	@RequestMapping("/acceptOrder")
-	public String acceptOrder(@RequestParam String order,Model model) {
+	public String acceptOrder(@RequestParam String id_sell,Model model) {
 		
-		try {
-			Orders orderProcess=new DaoOrders().get(Integer.valueOf(order.split(" ")[0]));
+		
+		Orders orderProcess=new DaoOrders().get(Integer.valueOf(id_sell.split(" ")[0]));
+		if(orderProcess!=null) {
 			Date date = new Date();
 			SellStatus status = new DaoSellStatus().getSellStatusByName("Accept");
 			orderProcess.setProcess_date(date);
 			orderProcess.setId_status(status);
 			new DaoOrders().update(orderProcess);
-		} catch (Exception e) {
-			model.addAttribute("result", "Fail!!!");
-			return "common/result";
+			model.addAttribute("result", "Заказ обработан и одобрен!");
 		}
-		model.addAttribute("result", "Success!!!");
+		else
+			model.addAttribute("result", "Ошибка!!!");
 		return "common/result";
 	}
 	
 	@RequestMapping("/declineOrder")
-	public String declineOrder(@RequestParam String order,Model model) {
-		
+	public String declineOrder(@RequestParam String id_sell,Model model) {
+		Orders orderProcess=new DaoOrders().get(Integer.valueOf(id_sell.split(" ")[0]));
+		if(orderProcess!=null) {
+			Date date = new Date();
+			SellStatus status = new DaoSellStatus().getSellStatusByName("Decline");
+			orderProcess.setProcess_date(date);
+			orderProcess.setId_status(status);
+			new DaoOrders().update(orderProcess);
+			model.addAttribute("result", "Заказ успешно отклонен!");
+		}
+		else
+			model.addAttribute("result", "Ошибка!!!");
 		return "common/result";
 	}
 	
@@ -156,6 +166,8 @@ public class ManagerController {
 		}
 		return "common/result";
 	}
+	
+	
 	
 	private Film createFilm(WebRequest request) throws ParseException {
 		Film film = null;

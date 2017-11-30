@@ -110,7 +110,7 @@
         						</ul>
         				</div>
         				</li>
-        				<li>
+        				<!-- <li>
         				<div class="dropdown">
         					<button class="btn btn-primary dropdown-toggle" id="menu1" type="button" data-toggle="dropdown">Актерский состав
         						<span class="caret"></span></button>
@@ -120,7 +120,7 @@
         							<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Удалить актера</a></li>   
         						</ul>
         				</div>
-        				</li>
+        				</li> -->
         				<li>
         				<div class="dropdown">
         					<button class="btn btn-primary dropdown-toggle" id="menu1" type="button" data-toggle="dropdown">Режиссеры
@@ -138,8 +138,7 @@
         						<span class="caret"></span></button>
         						<ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
         							<li role="presentation"><a role="menuitem" tabindex="-1" href="#" onclick="loadAllFilms()">Все фильмы</a></li>
-        							<li role="presentation"><a role="menuitem" tabindex="-1" href="#" onclick='loadFormAddFilm()'>Добавить фильм</a></li>
-        							<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Удалить фильм</a></li>   
+        							<li role="presentation"><a role="menuitem" tabindex="-1" href="#" onclick='loadFormAddFilm()'>Добавить фильм</a></li>   
         						</ul>
         				</div>
         				</li>

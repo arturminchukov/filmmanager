@@ -27,7 +27,7 @@ public class IndexController {
 	
 	@RequestMapping(value="/")
 	public String goToIndexPage() {
-		return "manager";
+		return "index";
 	}
 	
 	@RequestMapping(value="/registration")
